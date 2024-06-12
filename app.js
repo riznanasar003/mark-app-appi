@@ -16,7 +16,7 @@ app.post("/add",(req,res)=>{
     res.json({"status":"success"})
 })
 
-app.post("/search",(resq,res)=>{
+app.post("/search",(req,res)=>{
     let input = req.body
     markmodel.find(input).then(
         (data)=>{
