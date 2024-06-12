@@ -17,7 +17,16 @@ app.post("/add",(req,res)=>{
 })
 
 app.post("/search",(resq,res)=>{
-    res.send("Search")
+    let input = req.body
+    markmodel.find(input).then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
 })
 
 app.post("/delete",(req,res)=>{
