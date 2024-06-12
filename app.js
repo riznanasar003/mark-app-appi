@@ -25,7 +25,15 @@ app.post("/delete",(req,res)=>{
 })
 
 app.post("/view",(req,res)=>{
-    res.send("viewed")
+    markmodel.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
 })
 
 app.listen(8080,()=>{
