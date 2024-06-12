@@ -30,7 +30,16 @@ app.post("/search",(resq,res)=>{
 })
 
 app.post("/delete",(req,res)=>{
-    res.send("Deleted")
+    let input = req.body
+    markmodel.findByIdAndDelete(input._id).then(
+        (response)=>{
+            res.json({"status":"success"})
+        }
+    ).catch(
+        (error)=>{
+            res.json({"status":"error"})
+        }
+    )
 })
 
 app.post("/view",(req,res)=>{
